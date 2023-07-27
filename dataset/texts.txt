@@ -1,0 +1,1204 @@
+{
+	"rows": [
+		{
+			"row_idx": 0,
+			"row": {
+				"gem_id": "common_gen-train-0",
+				"gem_parent_id": "common_gen-train-0",
+				"concept_set_id": 0,
+				"concepts": ["mountain", "ski", "skier"],
+				"target": "Skier skis down the mountain",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 1,
+			"row": {
+				"gem_id": "common_gen-train-1",
+				"gem_parent_id": "common_gen-train-1",
+				"concept_set_id": 0,
+				"concepts": ["mountain", "ski", "skier"],
+				"target": "A skier is skiing down a mountain.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 2,
+			"row": {
+				"gem_id": "common_gen-train-2",
+				"gem_parent_id": "common_gen-train-2",
+				"concept_set_id": 0,
+				"concepts": ["mountain", "ski", "skier"],
+				"target": "Three skiers are skiing on a snowy mountain.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 3,
+			"row": {
+				"gem_id": "common_gen-train-3",
+				"gem_parent_id": "common_gen-train-3",
+				"concept_set_id": 1,
+				"concepts": ["dog", "tail", "wag"],
+				"target": "The dog is wagging his tail.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 4,
+			"row": {
+				"gem_id": "common_gen-train-4",
+				"gem_parent_id": "common_gen-train-4",
+				"concept_set_id": 1,
+				"concepts": ["dog", "tail", "wag"],
+				"target": "A dog wags his tail at the boy.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 5,
+			"row": {
+				"gem_id": "common_gen-train-5",
+				"gem_parent_id": "common_gen-train-5",
+				"concept_set_id": 1,
+				"concepts": ["dog", "tail", "wag"],
+				"target": "a dog wags its tail with its heart",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 6,
+			"row": {
+				"gem_id": "common_gen-train-6",
+				"gem_parent_id": "common_gen-train-6",
+				"concept_set_id": 2,
+				"concepts": ["canoe", "lake", "paddle"],
+				"target": "woman paddling canoe on a lake",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 7,
+			"row": {
+				"gem_id": "common_gen-train-7",
+				"gem_parent_id": "common_gen-train-7",
+				"concept_set_id": 2,
+				"concepts": ["canoe", "lake", "paddle"],
+				"target": "paddle an open canoe along lake .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 8,
+			"row": {
+				"gem_id": "common_gen-train-8",
+				"gem_parent_id": "common_gen-train-8",
+				"concept_set_id": 2,
+				"concepts": ["canoe", "lake", "paddle"],
+				"target": "a man paddles his canoe on the lake.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 9,
+			"row": {
+				"gem_id": "common_gen-train-9",
+				"gem_parent_id": "common_gen-train-9",
+				"concept_set_id": 3,
+				"concepts": ["pull", "station", "train"],
+				"target": "a train pulls into station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 10,
+			"row": {
+				"gem_id": "common_gen-train-10",
+				"gem_parent_id": "common_gen-train-10",
+				"concept_set_id": 3,
+				"concepts": ["pull", "station", "train"],
+				"target": "train pulling in to station .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 11,
+			"row": {
+				"gem_id": "common_gen-train-11",
+				"gem_parent_id": "common_gen-train-11",
+				"concept_set_id": 3,
+				"concepts": ["pull", "station", "train"],
+				"target": "the train pulling into station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 12,
+			"row": {
+				"gem_id": "common_gen-train-12",
+				"gem_parent_id": "common_gen-train-12",
+				"concept_set_id": 4,
+				"concepts": ["eat", "hay", "horse"],
+				"target": "A horse is eating hay.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 13,
+			"row": {
+				"gem_id": "common_gen-train-13",
+				"gem_parent_id": "common_gen-train-13",
+				"concept_set_id": 4,
+				"concepts": ["eat", "hay", "horse"],
+				"target": "The horses are eating hay.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 14,
+			"row": {
+				"gem_id": "common_gen-train-14",
+				"gem_parent_id": "common_gen-train-14",
+				"concept_set_id": 4,
+				"concepts": ["eat", "hay", "horse"],
+				"target": "A horse eats hay in the barn",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 15,
+			"row": {
+				"gem_id": "common_gen-train-15",
+				"gem_parent_id": "common_gen-train-15",
+				"concept_set_id": 5,
+				"concepts": ["fan", "match", "watch"],
+				"target": "watch a match with fans",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 16,
+			"row": {
+				"gem_id": "common_gen-train-16",
+				"gem_parent_id": "common_gen-train-16",
+				"concept_set_id": 5,
+				"concepts": ["fan", "match", "watch"],
+				"target": "the fans watch the match",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 17,
+			"row": {
+				"gem_id": "common_gen-train-17",
+				"gem_parent_id": "common_gen-train-17",
+				"concept_set_id": 5,
+				"concepts": ["fan", "match", "watch"],
+				"target": "a fan watches during the match",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 18,
+			"row": {
+				"gem_id": "common_gen-train-18",
+				"gem_parent_id": "common_gen-train-18",
+				"concept_set_id": 6,
+				"concepts": ["lake", "mountain", "surround"],
+				"target": "a lake surrounded by mountains .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 19,
+			"row": {
+				"gem_id": "common_gen-train-19",
+				"gem_parent_id": "common_gen-train-19",
+				"concept_set_id": 6,
+				"concepts": ["lake", "mountain", "surround"],
+				"target": "lake from the surrounding mountains",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 20,
+			"row": {
+				"gem_id": "common_gen-train-20",
+				"gem_parent_id": "common_gen-train-20",
+				"concept_set_id": 6,
+				"concepts": ["lake", "mountain", "surround"],
+				"target": "one of the mountain ranges that surrounds lake .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 21,
+			"row": {
+				"gem_id": "common_gen-train-21",
+				"gem_parent_id": "common_gen-train-21",
+				"concept_set_id": 7,
+				"concepts": ["dog", "lay", "rug"],
+				"target": "A dog laying on a rug.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 22,
+			"row": {
+				"gem_id": "common_gen-train-22",
+				"gem_parent_id": "common_gen-train-22",
+				"concept_set_id": 7,
+				"concepts": ["dog", "lay", "rug"],
+				"target": "The dogs laid down on the rug",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 23,
+			"row": {
+				"gem_id": "common_gen-train-23",
+				"gem_parent_id": "common_gen-train-23",
+				"concept_set_id": 7,
+				"concepts": ["dog", "lay", "rug"],
+				"target": "Brown dog chews on bone while laying on the rug.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 24,
+			"row": {
+				"gem_id": "common_gen-train-24",
+				"gem_parent_id": "common_gen-train-24",
+				"concept_set_id": 8,
+				"concepts": ["hang", "painting", "wall"],
+				"target": "hanging a painting on a wall at home",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 25,
+			"row": {
+				"gem_id": "common_gen-train-25",
+				"gem_parent_id": "common_gen-train-25",
+				"concept_set_id": 8,
+				"concepts": ["hang", "painting", "wall"],
+				"target": "paintings of horses hang on the walls .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 26,
+			"row": {
+				"gem_id": "common_gen-train-26",
+				"gem_parent_id": "common_gen-train-26",
+				"concept_set_id": 8,
+				"concepts": ["hang", "painting", "wall"],
+				"target": "There is only one painting hanging on the wall.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 27,
+			"row": {
+				"gem_id": "common_gen-train-27",
+				"gem_parent_id": "common_gen-train-27",
+				"concept_set_id": 9,
+				"concepts": ["carry", "food", "tray"],
+				"target": "boy carries a tray of food .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 28,
+			"row": {
+				"gem_id": "common_gen-train-28",
+				"gem_parent_id": "common_gen-train-28",
+				"concept_set_id": 9,
+				"concepts": ["carry", "food", "tray"],
+				"target": "people carrying food on trays",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 29,
+			"row": {
+				"gem_id": "common_gen-train-29",
+				"gem_parent_id": "common_gen-train-29",
+				"concept_set_id": 9,
+				"concepts": ["carry", "food", "tray"],
+				"target": "The woman is carrying two trays of food.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 30,
+			"row": {
+				"gem_id": "common_gen-train-30",
+				"gem_parent_id": "common_gen-train-30",
+				"concept_set_id": 10,
+				"concepts": ["match", "stadium", "watch"],
+				"target": "soccer fans watches a league match in a stadium",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 31,
+			"row": {
+				"gem_id": "common_gen-train-31",
+				"gem_parent_id": "common_gen-train-31",
+				"concept_set_id": 10,
+				"concepts": ["match", "stadium", "watch"],
+				"target": "A stadium full of people watching a tennis match.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 32,
+			"row": {
+				"gem_id": "common_gen-train-32",
+				"gem_parent_id": "common_gen-train-32",
+				"concept_set_id": 10,
+				"concepts": ["match", "stadium", "watch"],
+				"target": "supporters watch the match from a hill outside the stadium",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 33,
+			"row": {
+				"gem_id": "common_gen-train-33",
+				"gem_parent_id": "common_gen-train-33",
+				"concept_set_id": 11,
+				"concepts": ["cat", "lick", "paw"],
+				"target": "A cat licks his paws.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 34,
+			"row": {
+				"gem_id": "common_gen-train-34",
+				"gem_parent_id": "common_gen-train-34",
+				"concept_set_id": 11,
+				"concepts": ["cat", "lick", "paw"],
+				"target": "A cat is licking its paw",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 35,
+			"row": {
+				"gem_id": "common_gen-train-35",
+				"gem_parent_id": "common_gen-train-35",
+				"concept_set_id": 11,
+				"concepts": ["cat", "lick", "paw"],
+				"target": "the cat licks the pad of his front paw",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 36,
+			"row": {
+				"gem_id": "common_gen-train-36",
+				"gem_parent_id": "common_gen-train-36",
+				"concept_set_id": 12,
+				"concepts": ["room", "tile", "wall"],
+				"target": "a bath room with a toilet and tiled walls",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 37,
+			"row": {
+				"gem_id": "common_gen-train-37",
+				"gem_parent_id": "common_gen-train-37",
+				"concept_set_id": 12,
+				"concepts": ["room", "tile", "wall"],
+				"target": "Three men tile a wall in a large empty room",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 38,
+			"row": {
+				"gem_id": "common_gen-train-38",
+				"gem_parent_id": "common_gen-train-38",
+				"concept_set_id": 12,
+				"concepts": ["room", "tile", "wall"],
+				"target": "A wall mounted urinal in a checker tiled rest room.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 39,
+			"row": {
+				"gem_id": "common_gen-train-39",
+				"gem_parent_id": "common_gen-train-39",
+				"concept_set_id": 13,
+				"concepts": ["canoe", "lake", "shore"],
+				"target": "canoe on a shore of lake .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 40,
+			"row": {
+				"gem_id": "common_gen-train-40",
+				"gem_parent_id": "common_gen-train-40",
+				"concept_set_id": 13,
+				"concepts": ["canoe", "lake", "shore"],
+				"target": "canoe on shore with rainbow across the lake",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 41,
+			"row": {
+				"gem_id": "common_gen-train-41",
+				"gem_parent_id": "common_gen-train-41",
+				"concept_set_id": 13,
+				"concepts": ["canoe", "lake", "shore"],
+				"target": "Several canoes parked in the grass on the shore of a lake ",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 42,
+			"row": {
+				"gem_id": "common_gen-train-42",
+				"gem_parent_id": "common_gen-train-42",
+				"concept_set_id": 14,
+				"concepts": ["mountain", "skier", "way"],
+				"target": "A skier on his way to the mountain.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 43,
+			"row": {
+				"gem_id": "common_gen-train-43",
+				"gem_parent_id": "common_gen-train-43",
+				"concept_set_id": 14,
+				"concepts": ["mountain", "skier", "way"],
+				"target": "skiers make their way down the mountain",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 44,
+			"row": {
+				"gem_id": "common_gen-train-44",
+				"gem_parent_id": "common_gen-train-44",
+				"concept_set_id": 14,
+				"concepts": ["mountain", "skier", "way"],
+				"target": "A skier making her way down a snowy mountain.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 45,
+			"row": {
+				"gem_id": "common_gen-train-45",
+				"gem_parent_id": "common_gen-train-45",
+				"concept_set_id": 15,
+				"concepts": ["boat", "drive", "lake"],
+				"target": "driving boat on a lake",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 46,
+			"row": {
+				"gem_id": "common_gen-train-46",
+				"gem_parent_id": "common_gen-train-46",
+				"concept_set_id": 15,
+				"concepts": ["boat", "drive", "lake"],
+				"target": "a boat is being driven through a lake",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 47,
+			"row": {
+				"gem_id": "common_gen-train-47",
+				"gem_parent_id": "common_gen-train-47",
+				"concept_set_id": 15,
+				"concepts": ["boat", "drive", "lake"],
+				"target": "A fisherman drives his boat on the lake",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 48,
+			"row": {
+				"gem_id": "common_gen-train-48",
+				"gem_parent_id": "common_gen-train-48",
+				"concept_set_id": 16,
+				"concepts": ["eat", "grass", "horse"],
+				"target": "A horse is eating grass.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 49,
+			"row": {
+				"gem_id": "common_gen-train-49",
+				"gem_parent_id": "common_gen-train-49",
+				"concept_set_id": 16,
+				"concepts": ["eat", "grass", "horse"],
+				"target": "The horses are eating grass.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 50,
+			"row": {
+				"gem_id": "common_gen-train-50",
+				"gem_parent_id": "common_gen-train-50",
+				"concept_set_id": 16,
+				"concepts": ["eat", "grass", "horse"],
+				"target": "The old horse ate grass all day.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 51,
+			"row": {
+				"gem_id": "common_gen-train-51",
+				"gem_parent_id": "common_gen-train-51",
+				"concept_set_id": 17,
+				"concepts": ["come", "track", "train"],
+				"target": "train coming down the track",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 52,
+			"row": {
+				"gem_id": "common_gen-train-52",
+				"gem_parent_id": "common_gen-train-52",
+				"concept_set_id": 17,
+				"concepts": ["come", "track", "train"],
+				"target": "A train is coming along on a track.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 53,
+			"row": {
+				"gem_id": "common_gen-train-53",
+				"gem_parent_id": "common_gen-train-53",
+				"concept_set_id": 17,
+				"concepts": ["come", "track", "train"],
+				"target": "a long train in coming down some tracks",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 54,
+			"row": {
+				"gem_id": "common_gen-train-54",
+				"gem_parent_id": "common_gen-train-54",
+				"concept_set_id": 18,
+				"concepts": ["move", "track", "train"],
+				"target": "train moving on the tracks",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 55,
+			"row": {
+				"gem_id": "common_gen-train-55",
+				"gem_parent_id": "common_gen-train-55",
+				"concept_set_id": 18,
+				"concepts": ["move", "track", "train"],
+				"target": "A red train is moving down a track",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 56,
+			"row": {
+				"gem_id": "common_gen-train-56",
+				"gem_parent_id": "common_gen-train-56",
+				"concept_set_id": 18,
+				"concepts": ["move", "track", "train"],
+				"target": "A train moves slowly on some empty tracks",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 57,
+			"row": {
+				"gem_id": "common_gen-train-57",
+				"gem_parent_id": "common_gen-train-57",
+				"concept_set_id": 19,
+				"concepts": ["leave", "station", "train"],
+				"target": "a train leaves the station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 58,
+			"row": {
+				"gem_id": "common_gen-train-58",
+				"gem_parent_id": "common_gen-train-58",
+				"concept_set_id": 19,
+				"concepts": ["leave", "station", "train"],
+				"target": "a train leaving station bound",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 59,
+			"row": {
+				"gem_id": "common_gen-train-59",
+				"gem_parent_id": "common_gen-train-59",
+				"concept_set_id": 19,
+				"concepts": ["leave", "station", "train"],
+				"target": "a fast train about to leave station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 60,
+			"row": {
+				"gem_id": "common_gen-train-60",
+				"gem_parent_id": "common_gen-train-60",
+				"concept_set_id": 20,
+				"concepts": ["passenger", "station", "train"],
+				"target": "train and passengers at the station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 61,
+			"row": {
+				"gem_id": "common_gen-train-61",
+				"gem_parent_id": "common_gen-train-61",
+				"concept_set_id": 20,
+				"concepts": ["passenger", "station", "train"],
+				"target": "passengers leaving a train on a station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 62,
+			"row": {
+				"gem_id": "common_gen-train-62",
+				"gem_parent_id": "common_gen-train-62",
+				"concept_set_id": 20,
+				"concepts": ["passenger", "station", "train"],
+				"target": "a train at station with no passengers joining",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 63,
+			"row": {
+				"gem_id": "common_gen-train-63",
+				"gem_parent_id": "common_gen-train-63",
+				"concept_set_id": 21,
+				"concepts": ["arrive", "station", "train"],
+				"target": "a train arrives at station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 64,
+			"row": {
+				"gem_id": "common_gen-train-64",
+				"gem_parent_id": "common_gen-train-64",
+				"concept_set_id": 21,
+				"concepts": ["arrive", "station", "train"],
+				"target": "train arriving at the station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 65,
+			"row": {
+				"gem_id": "common_gen-train-65",
+				"gem_parent_id": "common_gen-train-65",
+				"concept_set_id": 21,
+				"concepts": ["arrive", "station", "train"],
+				"target": "subway train arrives in the station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 66,
+			"row": {
+				"gem_id": "common_gen-train-66",
+				"gem_parent_id": "common_gen-train-66",
+				"concept_set_id": 22,
+				"concepts": ["sit", "station", "train"],
+				"target": "a train sits at the station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 67,
+			"row": {
+				"gem_id": "common_gen-train-67",
+				"gem_parent_id": "common_gen-train-67",
+				"concept_set_id": 22,
+				"concepts": ["sit", "station", "train"],
+				"target": "A train that is sitting in a station.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 68,
+			"row": {
+				"gem_id": "common_gen-train-68",
+				"gem_parent_id": "common_gen-train-68",
+				"concept_set_id": 22,
+				"concepts": ["sit", "station", "train"],
+				"target": "A red train sitting at an empty station.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 69,
+			"row": {
+				"gem_id": "common_gen-train-69",
+				"gem_parent_id": "common_gen-train-69",
+				"concept_set_id": 23,
+				"concepts": ["horse", "pull", "wagon"],
+				"target": "a tea of horses pull a wagon",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 70,
+			"row": {
+				"gem_id": "common_gen-train-70",
+				"gem_parent_id": "common_gen-train-70",
+				"concept_set_id": 23,
+				"concepts": ["horse", "pull", "wagon"],
+				"target": "horse pulling man on wagon .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 71,
+			"row": {
+				"gem_id": "common_gen-train-71",
+				"gem_parent_id": "common_gen-train-71",
+				"concept_set_id": 23,
+				"concepts": ["horse", "pull", "wagon"],
+				"target": "A wagon is being pulled by horses.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 72,
+			"row": {
+				"gem_id": "common_gen-train-72",
+				"gem_parent_id": "common_gen-train-72",
+				"concept_set_id": 24,
+				"concepts": ["station", "stop", "train"],
+				"target": "train is stopped at a station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 73,
+			"row": {
+				"gem_id": "common_gen-train-73",
+				"gem_parent_id": "common_gen-train-73",
+				"concept_set_id": 24,
+				"concepts": ["station", "stop", "train"],
+				"target": "trains stopping at the station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 74,
+			"row": {
+				"gem_id": "common_gen-train-74",
+				"gem_parent_id": "common_gen-train-74",
+				"concept_set_id": 24,
+				"concepts": ["station", "stop", "train"],
+				"target": "The empty train is stopped in the station.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 75,
+			"row": {
+				"gem_id": "common_gen-train-75",
+				"gem_parent_id": "common_gen-train-75",
+				"concept_set_id": 25,
+				"concepts": ["plane", "runway", "sit"],
+				"target": "A plane sits on the runway",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 76,
+			"row": {
+				"gem_id": "common_gen-train-76",
+				"gem_parent_id": "common_gen-train-76",
+				"concept_set_id": 25,
+				"concepts": ["plane", "runway", "sit"],
+				"target": "An old plane is sitting on a runway.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 77,
+			"row": {
+				"gem_id": "common_gen-train-77",
+				"gem_parent_id": "common_gen-train-77",
+				"concept_set_id": 25,
+				"concepts": ["plane", "runway", "sit"],
+				"target": "Two planes are sitting out on the runway.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 78,
+			"row": {
+				"gem_id": "common_gen-train-78",
+				"gem_parent_id": "common_gen-train-78",
+				"concept_set_id": 26,
+				"concepts": ["cloud", "fly", "plane"],
+				"target": "plane flying into the clouds",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 79,
+			"row": {
+				"gem_id": "common_gen-train-79",
+				"gem_parent_id": "common_gen-train-79",
+				"concept_set_id": 26,
+				"concepts": ["cloud", "fly", "plane"],
+				"target": "flying plane against a cloud .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 80,
+			"row": {
+				"gem_id": "common_gen-train-80",
+				"gem_parent_id": "common_gen-train-80",
+				"concept_set_id": 26,
+				"concepts": ["cloud", "fly", "plane"],
+				"target": "A plane flies over head in the clouds.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 81,
+			"row": {
+				"gem_id": "common_gen-train-81",
+				"gem_parent_id": "common_gen-train-81",
+				"concept_set_id": 27,
+				"concepts": ["dog", "herd", "sheep"],
+				"target": "A dog herds a sheep.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 82,
+			"row": {
+				"gem_id": "common_gen-train-82",
+				"gem_parent_id": "common_gen-train-82",
+				"concept_set_id": 27,
+				"concepts": ["dog", "herd", "sheep"],
+				"target": "A dog is herding sheep.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 83,
+			"row": {
+				"gem_id": "common_gen-train-83",
+				"gem_parent_id": "common_gen-train-83",
+				"concept_set_id": 27,
+				"concepts": ["dog", "herd", "sheep"],
+				"target": "The dogs are herding sheep.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 84,
+			"row": {
+				"gem_id": "common_gen-train-84",
+				"gem_parent_id": "common_gen-train-84",
+				"concept_set_id": 28,
+				"concepts": ["beach", "boat", "sit"],
+				"target": "boats sitting on the beach",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 85,
+			"row": {
+				"gem_id": "common_gen-train-85",
+				"gem_parent_id": "common_gen-train-85",
+				"concept_set_id": 28,
+				"concepts": ["beach", "boat", "sit"],
+				"target": "a boat is sitting up on a beach",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 86,
+			"row": {
+				"gem_id": "common_gen-train-86",
+				"gem_parent_id": "common_gen-train-86",
+				"concept_set_id": 28,
+				"concepts": ["beach", "boat", "sit"],
+				"target": "Pelicans sit on a blue boat at the beach.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 87,
+			"row": {
+				"gem_id": "common_gen-train-87",
+				"gem_parent_id": "common_gen-train-87",
+				"concept_set_id": 29,
+				"concepts": ["come", "station", "train"],
+				"target": "a train coming into station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 88,
+			"row": {
+				"gem_id": "common_gen-train-88",
+				"gem_parent_id": "common_gen-train-88",
+				"concept_set_id": 29,
+				"concepts": ["come", "station", "train"],
+				"target": "tube train comes to station .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 89,
+			"row": {
+				"gem_id": "common_gen-train-89",
+				"gem_parent_id": "common_gen-train-89",
+				"concept_set_id": 29,
+				"concepts": ["come", "station", "train"],
+				"target": "train coming in to the station",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 90,
+			"row": {
+				"gem_id": "common_gen-train-90",
+				"gem_parent_id": "common_gen-train-90",
+				"concept_set_id": 30,
+				"concepts": ["cloud", "float", "sky"],
+				"target": "clouds floating in the sky",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 91,
+			"row": {
+				"gem_id": "common_gen-train-91",
+				"gem_parent_id": "common_gen-train-91",
+				"concept_set_id": 30,
+				"concepts": ["cloud", "float", "sky"],
+				"target": "clouds float through a blue sky",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 92,
+			"row": {
+				"gem_id": "common_gen-train-92",
+				"gem_parent_id": "common_gen-train-92",
+				"concept_set_id": 30,
+				"concepts": ["cloud", "float", "sky"],
+				"target": "shot of clouds that float across the sky",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 93,
+			"row": {
+				"gem_id": "common_gen-train-93",
+				"gem_parent_id": "common_gen-train-93",
+				"concept_set_id": 31,
+				"concepts": ["eat", "elephant", "grass"],
+				"target": "elephants pulling grass to eat .",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 94,
+			"row": {
+				"gem_id": "common_gen-train-94",
+				"gem_parent_id": "common_gen-train-94",
+				"concept_set_id": 31,
+				"concepts": ["eat", "elephant", "grass"],
+				"target": "An elephant is eating grass in Kenya.",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 95,
+			"row": {
+				"gem_id": "common_gen-train-95",
+				"gem_parent_id": "common_gen-train-95",
+				"concept_set_id": 31,
+				"concepts": ["eat", "elephant", "grass"],
+				"target": "a bunch of elephants are eating grass",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 96,
+			"row": {
+				"gem_id": "common_gen-train-96",
+				"gem_parent_id": "common_gen-train-96",
+				"concept_set_id": 32,
+				"concepts": ["family", "spend", "time"],
+				"target": "family spend time in the park",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 97,
+			"row": {
+				"gem_id": "common_gen-train-97",
+				"gem_parent_id": "common_gen-train-97",
+				"concept_set_id": 32,
+				"concepts": ["family", "spend", "time"],
+				"target": "spending time with the family",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 98,
+			"row": {
+				"gem_id": "common_gen-train-98",
+				"gem_parent_id": "common_gen-train-98",
+				"concept_set_id": 32,
+				"concepts": ["family", "spend", "time"],
+				"target": "family spend time at a holidays",
+				"references": []
+			},
+			"truncated_cells": []
+		},
+		{
+			"row_idx": 99,
+			"row": {
+				"gem_id": "common_gen-train-99",
+				"gem_parent_id": "common_gen-train-99",
+				"concept_set_id": 33,
+				"concepts": ["bathroom", "tile", "wall"],
+				"target": "black walls and tiles in the bathroom",
+				"references": []
+			},
+			"truncated_cells": []
+		}
+	]
+}

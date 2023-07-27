@@ -36,41 +36,34 @@ const hf = new HfInference(hf_key);
 
 ///////////////////// FUNCTIONS
 
-export const uploadFiles = async (files: FileList) => {
-	console.log(files);
-	for (let i = 0; i < files.length; i++) {
-		let file = files.item(i);
-		if (file === null) {
-			continue;
-		}
-
-		let name = file.name;
-		let type = file.type.includes('image') ? 'image' : 'text';
-
-		// upload file to storage
-		let storageRef = ref(storage, name);
-		await uploadBytes(storageRef, file);
-
-		// get description via HFInference
-		let desc: string;
-		if (type == 'image') desc = await captionImage(file);
-		else desc = await summarize(file);
-
-		let url = await getDownloadURL(storageRef);
-
-		// add file to database
-		let doc = {
-			name: name,
-			type: type,
-			url: url,
-			description: desc
-		};
-
-		addDoc(collection(db, 'files'), doc).then((res) => {
-			console.log('uploaded file ', i, ' to dbs');
-		});
+export const uploadFile = async (file: File) => {
+	if (file === null) {
+		return;
 	}
-	return 0;
+
+	let name = file.name;
+	let type = file.type.includes('image') ? 'image' : 'text';
+
+	// upload file to storage
+	let storageRef = ref(storage, name);
+	await uploadBytes(storageRef, file);
+
+	// get description via HFInference
+	let desc: string;
+	if (type == 'image') desc = await captionImage(file);
+	else desc = await summarize(file);
+
+	let url = await getDownloadURL(storageRef);
+
+	// add file to database
+	let doc = {
+		name: name,
+		type: type,
+		url: url,
+		description: desc
+	};
+
+	addDoc(collection(db, 'files'), doc);
 };
 
 // returns a promise of a list of files that match the query
@@ -105,7 +98,6 @@ export const getSearchResults = async (query: string) => {
 				.then(async (snapshot) => {
 					let results: any[] = [];
 					snapshot.forEach((doc) => {
-						// console.log(`${doc.id} => ${doc.data()}`);
 						results.push({
 							id: doc.id,
 							name: doc.data().name,
@@ -115,7 +107,6 @@ export const getSearchResults = async (query: string) => {
 						});
 					});
 
-					// TODO: rank results
 					let scores = await rankResults(query, results);
 					console.log(scores);
 					results.forEach((result, i) => {
@@ -136,7 +127,7 @@ export const getSearchResults = async (query: string) => {
 	}
 };
 
-///////////////////// FUNCTIONS (HuggingFace)
+///////////////////// API FUNCTIONS (HuggingFace)
 
 // Text TO Embedding closeness model
 const rankResults = async (query: string, results: any[]) => {
@@ -169,6 +160,8 @@ const rankResults = async (query: string, results: any[]) => {
 const summarize = async (text: File) => {
 	let desc: string = '';
 	let input = await loadTextFile(text);
+	if (input.length < 100) return input;
+
 	let model: string = 'facebook/bart-large-cnn';
 	// let model: string = 'csebuetnlp/mT5_multilingual_XLSum'; // <- another model to try
 
@@ -177,7 +170,7 @@ const summarize = async (text: File) => {
 			model: model,
 			inputs: input,
 			parameters: {
-				max_length: 50
+				max_length: 60
 			}
 		})
 		.then((res) => {

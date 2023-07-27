@@ -4,8 +4,8 @@ from tqdm import tqdm
 with open("open-images-dataset-train0.tsv") as file:
     tsv_file = csv.reader(file, delimiter="\t")
     for i, line in tqdm(enumerate(tsv_file)):
-        if i == 0: continue
-        if i < 100:
+        if i <= 100: continue
+        if i > 100 and i < 3000:
             url = line[0]
             fname = str(i) + ".jpg"
             # fname = url.replace('/', '-')

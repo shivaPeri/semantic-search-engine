@@ -1,50 +1,87 @@
 <script async script lang="ts">
+	import '../app.css';
+
 	import { signInWithPopup, signOut, type User } from 'firebase/auth';
 	import { auth, getSearchResults, provider, uploadFiles } from '$lib/util';
+	import { get } from 'svelte/store';
+	import FilePreview from '../components/filePreview.svelte';
 
 	let user: User | null = null;
 	auth.onAuthStateChanged((u) => (user = u));
 
 	let files: FileList;
-	$: files && uploadFiles(files);
+	let uploadingStatus: Promise<number>;
+	$: files && (() => (uploadingStatus = uploadFiles(files)))();
 
+	let input: string = '';
 	let query: string = '';
 
-	let results: string[] = [];
+	let results: object[];
+	$: results && console.log(results);
+
+	let selectedFile: any = { id: '' };
 </script>
 
-<main>
-	<h1>semantic search</h1>
-
-	<!-- AUTH stuff -->
-	<section>
+<!-- AUTH stuff -->
+<section>
+	<div class="flex p-3 gap-3">
 		{#if user}
-			<p>user: {user.displayName}</p>
-			<img src={user.photoURL} alt={user.displayName} />
 			<button on:click={() => signOut(auth)}>sign out</button>
+			<p>{user.displayName}</p>
 		{:else}
 			<button on:click={() => signInWithPopup(auth, provider)}>sign in</button>
 		{/if}
-	</section>
+	</div>
+</section>
 
-	<button on:click={() => getSearchResults(query)}>test</button>
+<main class="mx-auto max-w-[800px] mt-20 gap-5 grid">
+	<h1 class="text-4xl">semantic search</h1>
+
+	<!-- Upload files -->
+	{#if user}
+		<div>
+			<input bind:files type="file" accept=".txt,.jpg,.png" multiple />
+			{#await uploadingStatus}
+				...uploading
+			{:then progress}
+				done
+			{/await}
+		</div>
+	{/if}
 
 	<!-- Search bar -->
 	<section>
-		<input type="text" bind:value={query} />
-		<button on:click={() => console.log(query)}>search</button>
-
-		{#if user}
-			<input bind:files accept=".txt,.jpg,.png" multiple type="file" />
-		{/if}
+		<div class="grid grid-cols-[5fr_1fr]">
+			<input type="text" bind:value={input} />
+			<button on:click={() => (query = input)}>search</button>
+		</div>
 	</section>
 
 	<!-- Search results -->
 	<section>
-		<ul>
-			{#each results as result}
-				<li>{result}</li>
-			{/each}
-		</ul>
+		{#await getSearchResults(query)}
+			<p>...loading</p>
+		{:then results}
+			<div class="grid grid-cols-2">
+				<div>
+					<h2>{query === '' ? 'files' : 'results'}</h2>
+					<ul>
+						{#each results as result}
+							<!-- svelte-ignore a11y-click-events-have-key-events -->
+							<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+							<li
+								class={`hover:text-blue-500 ${selectedFile.id == result.id ? 'text-red-500' : ''}`}
+								on:click={() => (selectedFile = result)}
+							>
+								{result.name}
+							</li>
+						{/each}
+					</ul>
+				</div>
+				<FilePreview file={selectedFile} />
+			</div>
+		{:catch error}
+			<p style="color: red">{error.message}</p>
+		{/await}
 	</section>
 </main>

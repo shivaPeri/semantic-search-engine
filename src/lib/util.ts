@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { addDoc, collection, getDocs, getFirestore } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes } from 'firebase/storage';
+import { getDownloadURL, getStorage, listAll, ref, uploadBytes } from 'firebase/storage';
 import { GoogleAuthProvider, getAuth } from 'firebase/auth';
 import { HfInference, HfInferenceEndpoint } from '@huggingface/inference';
 
@@ -31,12 +31,7 @@ export const provider = new GoogleAuthProvider();
 
 ///////////////////// HUGGINGFACE
 
-// const hf_key = process.env.PRIVATE_HF_ACCESS_TOKEN;
 const hf_key = import.meta.env.VITE_HF_ACCESS_TOKEN;
-console.log(hf_key);
-// const hf_key = '';
-
-// initialize HuggingFace Inference API
 const hf = new HfInference(hf_key);
 
 ///////////////////// FUNCTIONS
@@ -48,69 +43,91 @@ export const uploadFiles = async (files: FileList) => {
 		if (file === null) {
 			continue;
 		}
-		console.log(file);
+
+		let name = file.name;
+		let type = file.type.includes('image') ? 'image' : 'text';
 
 		// upload file to storage
-		let storageRef = ref(storage, file.name);
-		await uploadBytes(storageRef, file).then((snapshot) => {
-			console.log('Uploaded a blob or file!', snapshot);
+		let storageRef = ref(storage, name);
+		await uploadBytes(storageRef, file);
+
+		// get description via HFInference
+		let desc: string;
+		if (type == 'image') desc = await captionImage(file);
+		else desc = await summarize(file);
+
+		let url = await getDownloadURL(storageRef);
+
+		// add file to database
+		let doc = {
+			name: name,
+			type: type,
+			url: url,
+			description: desc
+		};
+
+		addDoc(collection(db, 'files'), doc).then((res) => {
+			console.log('uploaded to dbs');
 		});
+	}
+	return 0;
+};
 
-		if (file.type.includes('image')) {
-			// caption image
-			let desc: string = await captionImage(file);
-			add2db(file, desc);
-		}
+// returns a promise of a list of files that match the query
+// or all files if query is empty
 
-		if (file.type.includes('text')) {
-			// summarize text
-			let desc = await summarize(file);
-			add2db(file, desc);
-		}
+// TODO: chunk into groups of 50 results
+export const getSearchResults = async (query: string) => {
+	if (query === '') {
+		return new Promise<any[]>((resolve, reject) => {
+			getDocs(collection(db, 'files'))
+				.then((snapshot) => {
+					let results: object[] = [];
+					snapshot.forEach((doc) => {
+						// console.log(`${doc.id} => ${doc.data()}`);
+						results.push({
+							id: doc.id,
+							name: doc.data().name,
+							type: doc.data().type,
+							url: doc.data().url,
+							description: doc.data().description
+						});
+					});
+					resolve(results);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		});
+	} else {
+		// return files that are semantically similar to query
+		return new Promise<any[]>((resolve, reject) => {
+			getDocs(collection(db, 'files'))
+				.then((snapshot) => {
+					let results: object[] = [];
+					snapshot.forEach((doc) => {
+						// console.log(`${doc.id} => ${doc.data()}`);
+						results.push({
+							id: doc.id,
+							name: doc.data().name,
+							type: doc.data().type,
+							url: doc.data().url,
+							description: doc.data().description
+						});
+					});
+					resolve(results);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		});
 	}
 };
 
-const add2db = async (file: File, desc: string) => {
-	addDoc(collection(db, 'files'), {
-		name: file.name,
-		description: desc
-	}).then((res) => {
-		console.log('uploaded to dbs');
-	});
-};
-
-// export const onStorageChanged = functions.storage.object().onFinalize(async (object) => {
-// 	const fileBucket = object.bucket; // The Storage bucket that contains the file.
-// 	const filePath = object.name; // File path in the bucket.
-// 	const contentType = object.contentType; // File content type.
-
-// 	console.log('file uploaded to storage');
-// 	console.log(fileBucket);
-// 	console.log(filePath);
-// 	console.log(contentType);
-// });
-
-export const getSearchResults = (query: string) => {
-	// if (query === '') {
-	// 	// return all files
-	// 	listAll(filesRef)
-	// 		.then((res) => {
-	// 			res.items.forEach((itemRef) => {
-	// 				console.log(itemRef.name);
-	// 			});
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log(err);
-	// 		});
-	// } else {
-	// 	// return files that are semantically similar to query
-	// }
-};
+///////////////////// FUNCTIONS (HuggingFace)
 
 // Text TO Embedding closeness model
-
-const rankResults = async () => {
-	// do something
+const rankResults = async (results: any[]) => {
 	await hf
 		.sentenceSimilarity({
 			model: 'sentence-transformers/all-MiniLM-L6-v2',

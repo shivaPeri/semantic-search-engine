@@ -1,7 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+// import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, listAll, updateMetadata } from "firebase/storage";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import { HfInference, HfInferenceEndpoint } from '@huggingface/inference';
+
+///////////////////// FIREBASE
 
 const config = {
   apiKey: "AIzaSyDZNfxtUg1J47Aj10GQXBWwY-cNxTkg15M",
@@ -10,28 +13,65 @@ const config = {
   storageBucket: "semantic-search-engine-ef68e.appspot.com",
   messagingSenderId: "825183710628",
   appId: "1:825183710628:web:070453f999b1331df62531"
+
 };
 
 // Initialize Firebase
 const app = initializeApp(config);
 
-// initialize Database
-export const db = getFirestore();
+// initialize Database and Storage
+// database stores file metadata and embeddings
+// storage stores the actual files
+// export const db = getFirestore();
+export const storage = getStorage(app);
+const filesRef = ref(storage, '');
 
 // initialize Authentication (only for users who want to upload files)
 export const auth = getAuth();
 export const provider = new GoogleAuthProvider();
 
+///////////////////// HUGGINGFACE
+
+const hf_key = ""
+// const hf_key = process.env.HF_API_KEY;
+// console.log(hf_key)
+
 // initialize HuggingFace Inference API
-const hf = new HfInference('your access token')
+const hf = new HfInference(hf_key)
 
 
-/////////////////////
+///////////////////// FUNCTIONS
 
 export const uploadFiles = (files: FileList) => {
     
     console.log(files)
-    // for ()
+    for (let i = 0; i < files.length; i++) {
+      let file = files.item(i)
+      console.log(file)
+      let storageRef = ref(storage, file.name);
+      uploadBytes(storageRef, file).then((snapshot) => {
+        console.log('Uploaded a blob or file!');
+      });
+    }
+
+}
+
+export const getSearchResults = (query: string) => {
+
+  if (query === "") { // return all files
+    
+    listAll(filesRef).then((res) => {
+      res.items.forEach((itemRef) => {
+        console.log(itemRef.name)
+      })
+    }).catch((err) => {
+      console.log(err)
+    })
+
+  } else {  // return files that are semantically similar to query
+
+  }
+
 }
 
 
@@ -83,23 +123,4 @@ const captionImage = async () => {
     //     data: readFileSync('test/cats.png'),
     //     model: 'nlpconnect/vit-gpt2-image-captioning'
     // })
-}
-
-
-
-export const search = (query: string) => {
-
-    // look up query in Firestore
-    const colRef = collection(db, 'indexed-files');
-
-    // collect all documents and extract their embeddings
-    getDocs(colRef).then((snapshot) => {
-        console.log(snapshot.docs);
-
-        // collect embeddings
-
-        // call inference endpoint
-
-        // return results
-    }).catch()
 }

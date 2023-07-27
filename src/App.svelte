@@ -1,18 +1,16 @@
 <script async script lang="ts">
   import { signInWithPopup, signOut, type User } from "firebase/auth";
-  import { auth, provider, uploadFiles } from "./lib/util";
+  import { auth, getSearchResults, provider, uploadFiles } from "./lib/util";
 
   let user: User | null = null;
+  auth.onAuthStateChanged((u) => (user = u));
+
   let files: FileList;
   $: files && uploadFiles(files);
 
   let query: string = "";
 
   let results: string[] = [];
-
-  auth.onAuthStateChanged((u) => {
-    user = u;
-  });
 </script>
 
 <main>
@@ -29,7 +27,7 @@
     {/if}
   </section>
 
-  <!-- <button on:click={foo}>test</button> -->
+  <button on:click={() => getSearchResults(query)}>test</button>
 
   <!-- Search bar -->
   <section>

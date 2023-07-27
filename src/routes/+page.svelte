@@ -28,7 +28,7 @@
 </script>
 
 <!-- AUTH stuff -->
-<section>
+<!-- <section>
 	<div class="flex p-3 gap-3">
 		{#if user}
 			<button on:click={() => signOut(auth)}>sign out</button>
@@ -37,22 +37,22 @@
 			<button on:click={() => signInWithPopup(auth, provider)}>sign in</button>
 		{/if}
 	</div>
-</section>
+</section> -->
 
 <main class="mx-auto max-w-[800px] mt-20 gap-5 grid">
 	<h1 class="text-4xl">semantic search</h1>
 
 	<!-- Upload files -->
-	{#if user}
-		<div>
-			<input bind:files type="file" accept=".txt,.jpg,.png" multiple />
-			{#if uploadingStatus < 100}
-				<p>uploading... {uploadingStatus}%</p>
-			{:else}
-				<p>upload complete</p>
-			{/if}
-		</div>
-	{/if}
+	<!-- {#if user} -->
+	<div>
+		<input bind:files type="file" accept=".txt,.jpg,.png" multiple />
+		{#if uploadingStatus < 100}
+			<p>uploading... {uploadingStatus}%</p>
+		{:else}
+			<p>upload complete</p>
+		{/if}
+	</div>
+	<!-- {/if} -->
 
 	<!-- Search bar -->
 	<section>

@@ -101,6 +101,5 @@ export const search = (query: string) => {
         // call inference endpoint
 
         // return results
-
     }).catch()
 }

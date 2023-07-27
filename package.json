@@ -12,6 +12,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@rollup/plugin-replace": "^5.0.2",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
@@ -30,6 +31,9 @@
 	"type": "module",
 	"dependencies": {
 		"@huggingface/inference": "^2.6.1",
-		"firebase": "^10.1.0"
+		"firebase": "^10.1.0",
+		"firebase-admin": "^11.10.1",
+		"firebase-functions": "^4.4.1",
+		"fs": "^0.0.1-security"
 	}
 }

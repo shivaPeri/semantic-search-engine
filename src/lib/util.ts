@@ -1,7 +1,6 @@
-// place files you want to import through the `$lib` alias in this folder.
 import { initializeApp } from 'firebase/app';
-// import { collection, getDocs, getFirestore } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, listAll, updateMetadata } from 'firebase/storage';
+import { addDoc, collection, getDocs, getFirestore } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import { GoogleAuthProvider, getAuth } from 'firebase/auth';
 import { HfInference, HfInferenceEndpoint } from '@huggingface/inference';
 
@@ -22,7 +21,7 @@ const app = initializeApp(config);
 // initialize Database and Storage
 // database stores file metadata and embeddings
 // storage stores the actual files
-// export const db = getFirestore();
+export const db = getFirestore();
 export const storage = getStorage(app);
 const filesRef = ref(storage, '');
 
@@ -32,15 +31,17 @@ export const provider = new GoogleAuthProvider();
 
 ///////////////////// HUGGINGFACE
 
-// const hf_key = process.env.HF_ACCESS_TOKEN;
-const hf_key = '';
+// const hf_key = process.env.PRIVATE_HF_ACCESS_TOKEN;
+const hf_key = import.meta.env.VITE_HF_ACCESS_TOKEN;
+console.log(hf_key);
+// const hf_key = '';
 
 // initialize HuggingFace Inference API
 const hf = new HfInference(hf_key);
 
 ///////////////////// FUNCTIONS
 
-export const uploadFiles = (files: FileList) => {
+export const uploadFiles = async (files: FileList) => {
 	console.log(files);
 	for (let i = 0; i < files.length; i++) {
 		let file = files.item(i);
@@ -48,42 +49,62 @@ export const uploadFiles = (files: FileList) => {
 			continue;
 		}
 		console.log(file);
+
+		// upload file to storage
 		let storageRef = ref(storage, file.name);
-		uploadBytes(storageRef, file).then((snapshot) => {
-			console.log('Uploaded a blob or file!');
+		await uploadBytes(storageRef, file).then((snapshot) => {
+			console.log('Uploaded a blob or file!', snapshot);
 		});
+
+		if (file.type.includes('image')) {
+			// caption image
+			let desc: string = await captionImage(file);
+			add2db(file, desc);
+		}
+
+		if (file.type.includes('text')) {
+			// summarize text
+			let desc = await summarize(file);
+			add2db(file, desc);
+		}
 	}
 };
+
+const add2db = async (file: File, desc: string) => {
+	addDoc(collection(db, 'files'), {
+		name: file.name,
+		description: desc
+	}).then((res) => {
+		console.log('uploaded to dbs');
+	});
+};
+
+// export const onStorageChanged = functions.storage.object().onFinalize(async (object) => {
+// 	const fileBucket = object.bucket; // The Storage bucket that contains the file.
+// 	const filePath = object.name; // File path in the bucket.
+// 	const contentType = object.contentType; // File content type.
+
+// 	console.log('file uploaded to storage');
+// 	console.log(fileBucket);
+// 	console.log(filePath);
+// 	console.log(contentType);
+// });
 
 export const getSearchResults = (query: string) => {
-	if (query === '') {
-		// return all files
-
-		listAll(filesRef)
-			.then((res) => {
-				res.items.forEach((itemRef) => {
-					console.log(itemRef.name);
-				});
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	} else {
-		// return files that are semantically similar to query
-	}
-};
-
-// Text TO Summary model
-const summarize = async (text: string) => {
-	// "csebuetnlp/mT5_multilingual_XLSum" // <- another model to try
-	// await hf.summarization({
-	//     model: 'facebook/bart-large-cnn',
-	//     inputs:
-	//       'The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930.',
-	//     parameters: {
-	//       max_length: 100
-	//     }
-	// })
+	// if (query === '') {
+	// 	// return all files
+	// 	listAll(filesRef)
+	// 		.then((res) => {
+	// 			res.items.forEach((itemRef) => {
+	// 				console.log(itemRef.name);
+	// 			});
+	// 		})
+	// 		.catch((err) => {
+	// 			console.log(err);
+	// 		});
+	// } else {
+	// 	// return files that are semantically similar to query
+	// }
 };
 
 // Text TO Embedding closeness model
@@ -106,11 +127,50 @@ const rankResults = async () => {
 		});
 };
 
+// Text TO Summary model
+const summarize = async (text: File) => {
+	let desc: string = '';
+	let input = await loadTextFile(text);
+	let model: string = 'facebook/bart-large-cnn';
+	// let model: string = 'csebuetnlp/mT5_multilingual_XLSum'; // <- another model to try
+
+	await hf
+		.summarization({
+			model: model,
+			inputs: input,
+			parameters: {
+				max_length: 50
+			}
+		})
+		.then((res) => {
+			desc = res.summary_text;
+		});
+	return desc;
+};
+
+// asynchronously load text file as string
+const loadTextFile = async (file: File) => {
+	let reader = new FileReader();
+	return new Promise<string>((resolve, reject) => {
+		reader.onerror = reject;
+		reader.onload = () => {
+			resolve(reader.result as string);
+		};
+		reader.readAsText(file);
+	});
+};
+
 // Image TO Caption model
-const captionImage = async () => {
-	// "nlpconnect/vit-gpt2-image-captioning"
-	// await hf.imageToText({
-	//     data: readFileSync('test/cats.png'),
-	//     model: 'nlpconnect/vit-gpt2-image-captioning'
-	// })
+const captionImage = async (image: Blob) => {
+	let desc: string = '';
+	await hf
+		.imageToText({
+			data: image,
+			model: 'nlpconnect/vit-gpt2-image-captioning'
+		})
+		.then((res) => {
+			desc = res.generated_text;
+		});
+
+	return desc;
 };

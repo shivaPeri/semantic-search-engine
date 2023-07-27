@@ -67,7 +67,7 @@ export const uploadFiles = async (files: FileList) => {
 		};
 
 		addDoc(collection(db, 'files'), doc).then((res) => {
-			console.log('uploaded to dbs');
+			console.log('uploaded file ', i, ' to dbs');
 		});
 	}
 	return 0;
@@ -75,7 +75,6 @@ export const uploadFiles = async (files: FileList) => {
 
 // returns a promise of a list of files that match the query
 // or all files if query is empty
-
 // TODO: chunk into groups of 50 results
 export const getSearchResults = async (query: string) => {
 	if (query === '') {
@@ -103,8 +102,8 @@ export const getSearchResults = async (query: string) => {
 		// return files that are semantically similar to query
 		return new Promise<any[]>((resolve, reject) => {
 			getDocs(collection(db, 'files'))
-				.then((snapshot) => {
-					let results: object[] = [];
+				.then(async (snapshot) => {
+					let results: any[] = [];
 					snapshot.forEach((doc) => {
 						// console.log(`${doc.id} => ${doc.data()}`);
 						results.push({
@@ -115,6 +114,19 @@ export const getSearchResults = async (query: string) => {
 							description: doc.data().description
 						});
 					});
+
+					// TODO: rank results
+					let scores = await rankResults(query, results);
+					console.log(scores);
+					results.forEach((result, i) => {
+						result.score = scores[i];
+					});
+
+					// sort results by score
+					results.sort((a, b) => {
+						return b.score - a.score;
+					});
+
 					resolve(results);
 				})
 				.catch((err) => {
@@ -127,21 +139,30 @@ export const getSearchResults = async (query: string) => {
 ///////////////////// FUNCTIONS (HuggingFace)
 
 // Text TO Embedding closeness model
-const rankResults = async (results: any[]) => {
-	await hf
-		.sentenceSimilarity({
+const rankResults = async (query: string, results: any[]) => {
+	let sentences: string[] = [];
+	results.forEach((result) => {
+		sentences.push(result.description);
+	});
+
+	console.log(query);
+	console.log(sentences);
+
+	return new Promise<number[]>((resolve, reject) => {
+		hf.sentenceSimilarity({
 			model: 'sentence-transformers/all-MiniLM-L6-v2',
 			inputs: {
-				source_sentence: 'That is a happy person',
-				sentences: ['That is a happy dog', 'That is a very happy person', 'Today is a sunny day']
+				source_sentence: query,
+				sentences: sentences
 			}
 		})
-		.then((res) => {
-			console.log(res);
-		})
-		.catch((err) => {
-			console.log(err);
-		});
+			.then((scores) => {
+				resolve(scores);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	});
 };
 
 // Text TO Summary model
